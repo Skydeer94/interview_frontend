@@ -1,0 +1,66 @@
+:host{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px 1fr auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header-dialogo {
+  background-color: #1D6F42;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+
+  span {
+    font-size: 16px;
+  }
+}
+
+.buttons-cancel{
+  border: 1px solid #CD5C5C;
+  border-radius: 25px !important;
+  height: 40px !important;
+  background-color: white !important;
+  color: #CD5C5C !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  margin-bottom: 20px !important;
+  min-width: 150px !important;
+}
+
+.buttons-all{
+  border-radius: 25px !important;
+  height: 40px !important;
+  background-color: #1D6F42 !important;
+  color: white !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  margin-bottom: 20px !important;
+  min-width: 150px !important;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+
+.body-dialogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+.footer-dialogo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}

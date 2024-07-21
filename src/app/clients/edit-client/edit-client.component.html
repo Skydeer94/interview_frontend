@@ -1,0 +1,63 @@
+<div class="header-dialogo">
+  <span>Edit Client</span>
+</div>
+<form [formGroup]="form" (ngSubmit)="onEditClient()" >
+  <div class="body-dialogo">
+
+    <mat-form-field class="input-round-form" >
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="nameClient">
+    </mat-form-field>
+
+    <mat-form-field class="input-round-form">
+      <mat-label>Document type</mat-label>
+      <mat-select formControlName="documentType">
+        <mat-option *ngFor="let type of documentTypeList" [value]="type.id">
+          {{ type.name }} - {{ type.description }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="input-round-form" >
+      <mat-label>Document number</mat-label>
+      <input matInput formControlName="documentNumber">
+    </mat-form-field>
+
+    <mat-form-field class="input-round-form" >
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field class="input-round-form">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="input-round-form">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone">
+    </mat-form-field>
+
+    <mat-form-field class="input-round-form">
+      <mat-label>Creation date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="creationDate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+
+
+  <div class="footer-dialogo">
+    <button mat-raised-button class="buttons-cancel" (click)="onCancel()">
+      <mat-icon>arrow_back</mat-icon>
+      Cancel
+    </button>
+    <button mat-raised-button class="buttons-all" type="submit">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+  </div>
+
+</form>
