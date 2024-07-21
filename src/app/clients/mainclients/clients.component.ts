@@ -57,10 +57,7 @@ export class ClientsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getAllDocumentTypes();
-    setTimeout(() => {
       this.getAllClients();
-    }, 500);
   }
 
   ngAfterViewInit() {
@@ -71,13 +68,7 @@ export class ClientsComponent implements OnInit {
   getAllClients() {
     this._clientsService.getAllClients().subscribe({
       next: (result: any) => {
-        this.dataSource.data = result.data.map((client: any) => {
-          const documentType = this.documentTypeList.find(type => type.id == client.document_type);
-          return {
-            ...client,
-            document_type_name: documentType ? documentType.name + '-' + documentType.description : ''
-          };
-        });
+        this.dataSource.data = result.data;
       },
       error: (err: any) => {
         console.warn(err);
@@ -85,16 +76,6 @@ export class ClientsComponent implements OnInit {
     })
   }
 
-  getAllDocumentTypes() {
-    this._clientsService.getAllDocumentTypes().subscribe({
-      next: (resp: any) => {
-        this.documentTypeList = resp.data;
-      },
-      error: (error: any) => {
-        console.log( error )
-      }
-    })
-  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

@@ -47,7 +47,7 @@ export class EditClientComponent implements OnInit{
   {
     this.form = this.fb.group({
       nameClient: ['', [Validators.required]],
-      documentType: [null, [Validators.required]],
+      documentType: ['', [Validators.required]],
       documentNumber: ['', [Validators.email]],
       address: [''],
       email: ['', [Validators.email]],
@@ -58,12 +58,12 @@ export class EditClientComponent implements OnInit{
 
   ngOnInit(): void {
     this.clientData = this.data.client;
+    console.log( this.clientData )
     this.updateForm(this.clientData);
     this.getAllDocumentTypes();
   }
 
   onCancel() {
-
     this.dialogRef.close(null);
   }
 
